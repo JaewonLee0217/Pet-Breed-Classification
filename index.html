@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      class="jsbin"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+    <script src="./modelData.json"></script>
+    <script src="./script.js"></script>
+  </head>
+  <body>
+    <div class="file-upload">
+      <div class="title">Teachable Machine Image Model <br>by TeamNoWon</div>
+      <div class="container-btn">
+        <button
+          class="file-upload-btn"
+          type="button"
+          onclick="$('.file-upload-input').trigger( 'click' )"
+        >
+          1. 사진 추가
+        </button>
+        <button class="file-init-btn" type="button" onclick="init()">
+          2. 초기화
+        </button>
+        <button class="file-predict-btn" type="button" onclick="predict()">
+          3. 예측
+        </button>
+      </div>
+      <div class="image-upload-wrap">
+        <input
+          class="file-upload-input"
+          type="file"
+          onchange="readURL(this);"
+          accept="image/*"
+        />
+        <div class="drag-text">
+          <h3 style="font-weight:bold">사진을 드래그 혹은 클릭하여 사진 추가</h3>
+        </div>
+      </div>
+      <div class="file-upload-content">
+        <img
+          class="file-upload-image"
+          id="pet-image"
+          src="#"
+          alt="your image"
+        />
+        <div class="image-title-wrap">
+          <button type="button" onclick="removeUpload()" class="remove-image">
+            사진 제거 
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="webcam-container"></div>
+    <div id="label-container"></div>
+  </body>
+</html>
